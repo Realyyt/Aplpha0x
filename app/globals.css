@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* app/globals.css */
+/* app/globals.css */
+/* app/globals.css */
+html, body {
+    overflow: hidden; /* Prevent default scrollbar */
+    height: 100%; /* Ensure full height */
+  }
+  
+  .scrollable {
+    overflow-y: auto; /* Allow vertical scrolling */
+    height: 100vh; /* Full viewport height */
+    scrollbar-width: none; /* For Firefox */
+  }
+  
+  .scrollable::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+  }
