@@ -48,7 +48,7 @@ const BioScanFeatures: React.FC = () => {
         {/* Central Watch Image */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px]">
           <Image
-            src="/r.png"
+            src={"/r.png"}
             alt="Alpha Wearable Device"
             width={900}
             height={900}
