@@ -4,7 +4,6 @@ import AlphaWearableHighlight from "./sections/AlphaWearableHighlight"
 import WearableFeatureShowcase from './sections/WearableFeatureShowcase';
 import BioScanFeatures from './sections/BioScanFeatures';
 import WhyAlphaWearable from "./sections/WhyAlphaWearable";
-import GridLayout from "./sections/GridLayout";
 import Alpha from "./sections/alpha";
 import ImageGallery from "./sections/imagegallery";
 import MonitoringInfo from "./sections/monitoringinfo";

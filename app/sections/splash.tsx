@@ -9,10 +9,12 @@ export default function ColorfulSplash() {
       </div>
       <div className="absolute inset-0 flex justify-center items-center">
         <span className="text-gray-200 text-[20vw] font-bold">bio</span>
-        <img
+        <Image
           src="/splash.png"
           alt="Colorful Splash"
-          className="w-3/4 h-3/4 object-cover"
+          width={3/4}
+          height={3/4}
+          objectFit="cover"
         />
         <span className="text-gray-200 text-[20vw] font-bold">tech</span>
       </div>

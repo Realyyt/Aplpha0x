@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function MonitoringInfo() {
   return (
     <div className="relative flex justify-center items-center p-8 bg-white mt-16">
@@ -8,11 +10,15 @@ export default function MonitoringInfo() {
           Track your sleep patterns effortlessly. Our app analyzes your nightly rest, providing insights into sleep quality, duration, and disruptions.
         </p>
       </div>
-      <img
-        src="/p1.png"
-        alt="Vital Signs"
-        style={{ width: '328.34px', height: '676.99px', margin: '0 8px' }}
-      />
+      <div style={{ width: '328.34px', height: '676.99px', margin: '0 8px' }}>
+        <Image
+          src="/p1.png"
+          alt="Vital Signs"
+          layout="fixed"
+          width={328.34}
+          height={676.99}
+        />
+      </div>
       <div className="absolute bottom-1/4 right-4 flex flex-col items-end pl-8 z-10">
         <div className="bg-black h-[2px] w-[545.32px] mb-2"></div>
         <h2 className="text-xl font-bold mb-2 mr-4">Heart Rate Monitoring</h2>
