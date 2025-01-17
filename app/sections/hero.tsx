@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import TextReveal from '../components/TextReveal';
 
 interface SplitRevealSequenceProps {
   imageUrl?: string;
@@ -64,12 +65,12 @@ const SplitRevealSequence: React.FC<SplitRevealSequenceProps> = ({
         />
       </div>
 
-      {/* Split Reveal Overlays */}
+      {/* Slow down the Split Reveal Overlays */}
       <div
-        className={`absolute top-0 left-0 w-full h-1/2 bg-black transition-transform duration-1000 ease-in-out z-50 ${isRevealing ? 'translate-y-[-100%]' : 'translate-y-0'}`}
+        className={`absolute top-0 left-0 w-full h-1/2 bg-black transition-transform duration-[2000ms] ease-in-out z-50 ${isRevealing ? 'translate-y-[-100%]' : 'translate-y-0'}`}
       />
       <div
-        className={`absolute bottom-0 left-0 w-full h-1/2 bg-black transition-transform duration-1000 ease-in-out z-50 ${isRevealing ? 'translate-y-[100%]' : 'translate-y-0'}`}
+        className={`absolute bottom-0 left-0 w-full h-1/2 bg-black transition-transform duration-[2000ms] ease-in-out z-50 ${isRevealing ? 'translate-y-[100%]' : 'translate-y-0'}`}
       />
 
       {/* Main Content */}
@@ -89,14 +90,22 @@ const SplitRevealSequence: React.FC<SplitRevealSequenceProps> = ({
             />
           </div>
           <div className="hidden md:flex gap-8 text-white">
-            <button className="hover:text-green-300 transition-colors">Science</button>
-            <button className="hover:text-green-300 transition-colors">About us</button>
-            <button className="hover:text-green-300 transition-colors">Contact</button>
-            <button className="hover:text-green-300 transition-colors">Partnerships</button>
+            {['Science', 'About us', 'Contact', 'Partnerships'].map((text, index) => (
+              <span 
+                key={index} 
+                className={`hover:text-green-300 transition-opacity duration-[2000ms] ease-in-out opacity-0 hover:opacity-100 animate-fadeIn`}
+                style={{ animationDelay: `${index * 0.5}s` }}
+              >
+                {text}
+              </span>
+            ))}
           </div>
-          <button className="bg-[#c0ff72] px-4 py-2 rounded-md text-sm md:text-base hover:bg-[#coff72] transition-colors">
+          <span 
+            className="bg-[#c0ff72] px-4 py-2 rounded-md text-sm md:text-base hover:bg-[#c0ff72] transition-opacity duration-[2000ms] ease-in-out opacity-0 hover:opacity-100 animate-fadeIn"
+            style={{ animationDelay: `${4 * 0.5}s` }}
+          >
             Order now
-          </button>
+          </span>
         </nav>
 
         {/* Main Text Content with enhanced parallax */}
@@ -105,9 +114,9 @@ const SplitRevealSequence: React.FC<SplitRevealSequenceProps> = ({
             ${textVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           style={getParallaxStyle(0.3)}
         >
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-2">{mainText.title}</h1>
-          <h2 className="text-3xl sm:text-4xl md:text-6xl italic mb-4">{mainText.subtitle}</h2>
-          <p className="text-sm md:text-base text-gray-200">{mainText.description}</p>
+          <TextReveal text={mainText.title} className="text-3xl sm:text-4xl md:text-6xl font-bold mb-2" />
+          <TextReveal text={mainText.subtitle} className="text-3xl sm:text-4xl md:text-6xl italic mb-4" />
+          <TextReveal text={mainText.description} className="text-sm md:text-base text-gray-200" />
         </div>
 
         {/* Box with enhanced parallax */}
@@ -118,7 +127,6 @@ const SplitRevealSequence: React.FC<SplitRevealSequenceProps> = ({
           style={getParallaxStyle(0.15)}
         >
           <div className={`text-${scrollY > 100 ? 'gray-400' : 'white'}`}>
-            {/* First Section: Alpha Wearable Device */}
             <div className="flex h-[126.9px] gap-5 h-full">
               <div className="w-[100px] sm:w-[140px] h-[95px] rounded-lg overflow-hidden flex-shrink-0 bg-[#808080]">
                 <Image 
@@ -131,18 +139,12 @@ const SplitRevealSequence: React.FC<SplitRevealSequenceProps> = ({
               </div>
               <div className="text-white flex-1 flex flex-col justify-between py-2">
                 <div>
-                  <h3 className="text-lg sm:text-xl font-semibold tracking-wide">
-                    <span className="text-white">ALPHA</span>{' '}
-                    <span className="text-gray-400">WEARABLE</span>
-                  </h3>
-                  <p className="text-sm text-gray-400 mt-2 leading-snug">
-                    A wearable device that combines advanced Bio-Scan technology with therapeutic frequency therapy to naturally support stress ...
-                  </p>
+                  <TextReveal text="ALPHA WEARABLE" className="text-lg sm:text-xl font-semibold tracking-wide" />
+                  <TextReveal text="A wearable device that combines advanced Bio-Scan technology with therapeutic frequency therapy to naturally support stress ..." className="text-sm text-gray-400 mt-2 leading-snug" />
                 </div>
               </div>
             </div>
 
-            {/* Doctor Information Section - Merged with Alpha Wearable */}
             <div className="bg-[#fffff]/20 backdrop-blur-[95%] p-5 rounded-2xl flex justify-between items-center mt-4">
               <div className="flex items-center gap-3">
                 <div className="relative">
@@ -155,13 +157,11 @@ const SplitRevealSequence: React.FC<SplitRevealSequenceProps> = ({
                   />
                 </div>
                 <div className='whitespace-nowrap'>
-                  <p className="text-sm font-medium">Dr Emi Martinez</p>
-                  <p className="text-xs text-gray-400">Head Doctor</p>
+                  <TextReveal text="Dr Emi Martinez" className="text-sm font-medium" />
+                  <TextReveal text="Head Doctor" className="text-xs text-gray-400" />
                 </div>
               </div>
-              <button className="bg-gradient-to-r from-[#8793ff] to-[#6272ff] hover:bg-[#5558E3] px-4 py-2 rounded-xl text-sm font-medium transition-colors">
-                View product
-              </button>
+              <TextReveal text="View product" className="bg-gradient-to-r from-[#8793ff] to-[#6272ff] hover:bg-[#5558E3] px-4 py-2 rounded-xl text-sm font-medium transition-colors" />
             </div>
           </div>
         </div>
