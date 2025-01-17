@@ -31,12 +31,12 @@ export default function Testimonials() {
   };
 
   return (
-    <div className="bg-black h-[100vh]text-white py-16">
-      <h2 className="text-4xl font-bold text-center mb-4">Our Testimonials</h2>
+    <div className="bg-black h-[100vh] text-white py-16 px-4">
+      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">Our Testimonials</h2>
       <p className="text-center mb-8">
         Real experiences, real results – discover how our solutions have made a difference in the lives of our users.
       </p>
-      <div className="max-w-4xl mx-auto flex items-center justify-center">
+      <div className="max-w-full sm:max-w-4xl mx-auto flex items-center justify-center">
         <button onClick={handlePrev} className="text-white mx-2">←</button>
         <div className="flex flex-col items-center mx-4">
           {testimonials[currentIndex].type === 'image' ? (

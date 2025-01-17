@@ -44,9 +44,9 @@ const features: FeatureSection[] = [
 const BioScanFeatures: React.FC = () => {
   return (
     <div className="bg-white w-full py-10">
-      <div className="max-w-[1522.75px] mx-auto relative h-[100vh]">
+      <div className="max-w-full sm:max-w-[1522.75px] mx-auto relative h-[100vh]">
         {/* Central Watch Image */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px]">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[900px] h-[300px] sm:h-[900px]">
           <Image
             src={"/r.png"}
             alt="Alpha Wearable Device"
@@ -59,15 +59,15 @@ const BioScanFeatures: React.FC = () => {
         </div>
 
         {/* Features Container with balanced spacing */}
-        <div className="relative z-10 h-full flex flex-col justify-between ">
+        <div className="relative z-10 h-full flex flex-col justify-between">
           {/* Top Feature */}
           <div className={`flex ${features[0].alignment === 'left' ? 'justify-start' : 'justify-end'}`}>
-            <div className={`w-full max-w-[460px] ${features[0].alignment === 'left' ? 'pl-8' : 'pr-8'}`}>
+            <div className={`w-full max-w-[460px] ${features[0].alignment === 'left' ? 'pl-4 sm:pl-8' : 'pr-4 sm:pr-8'}`}>
               <div className="flex items-center gap-3 mb-4">
                 {features[0].icon}
                 <div className="h-[1px] bg-black flex-grow"/>
               </div>
-              <h2 className="text-[56px] leading-[1.1] font-light mb-4 tracking-[-0.02em]">
+              <h2 className="text-[36px] sm:text-[56px] leading-[1.1] font-light mb-4 tracking-[-0.02em]">
                 {features[0].title}
               </h2>
               <p className="text-gray-600 text-base leading-relaxed max-w-[400px]">
@@ -77,13 +77,13 @@ const BioScanFeatures: React.FC = () => {
           </div>
 
           {/* Bottom Feature - Adjusted position */}
-          <div className={`flex ${features[1].alignment === 'left' ? 'justify-start' : 'justify-end'} mt-[-100px]`}>
-            <div className={`w-full max-w-[460px] ${features[1].alignment === 'left' ? 'pl-8' : 'pr-8'}`}>
+          <div className={`flex ${features[1].alignment === 'left' ? 'justify-start' : 'justify-end'} mt-[-50px] sm:mt-[-100px]`}>
+            <div className={`w-full max-w-[460px] ${features[1].alignment === 'left' ? 'pl-4 sm:pl-8' : 'pr-4 sm:pr-8'}`}>
               <div className="flex items-center gap-3 mb-4">
                 {features[1].icon}
                 <div className="h-[1px] bg-black flex-grow"/>
               </div>
-              <h2 className="text-[56px] leading-[1.1] font-light mb-4 tracking-[-0.02em]">
+              <h2 className="text-[36px] sm:text-[56px] leading-[1.1] font-light mb-4 tracking-[-0.02em]">
                 {features[1].title}
               </h2>
               <p className="text-gray-600 text-base leading-relaxed max-w-[400px]">

@@ -73,7 +73,7 @@ const SplitRevealSequence: React.FC<SplitRevealSequenceProps> = ({
       />
 
       {/* Main Content */}
-      <div className="relative w-full h-screen max-w-[1522.75px] max-h-[951.72px] mx-auto">
+      <div className="relative w-full h-screen max-w-full sm:max-w-[1522.75px] max-h-[951.72px] mx-auto">
         {/* Navbar with smoother parallax */}
         <nav 
           className={`absolute top-0 w-full p-4 flex justify-between items-center transition-transform duration-300 ease-out`}
@@ -105,22 +105,22 @@ const SplitRevealSequence: React.FC<SplitRevealSequenceProps> = ({
             ${textVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           style={getParallaxStyle(0.3)}
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-2">{mainText.title}</h1>
-          <h2 className="text-4xl md:text-6xl italic mb-4">{mainText.subtitle}</h2>
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-2">{mainText.title}</h1>
+          <h2 className="text-3xl sm:text-4xl md:text-6xl italic mb-4">{mainText.subtitle}</h2>
           <p className="text-sm md:text-base text-gray-200">{mainText.description}</p>
         </div>
 
         {/* Box with enhanced parallax */}
         <div 
           className={`absolute bottom-0 right-0 bg-white/5 backdrop-blur-[68.52%] p-5 rounded-2xl
-            w-[470px] h-[240px] transition-all duration-300 ease-out
+            w-[300px] sm:w-[470px] h-[240px] transition-all duration-300 ease-out
             ${boxVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           style={getParallaxStyle(0.15)}
         >
           <div className={`text-${scrollY > 100 ? 'gray-400' : 'white'}`}>
             {/* First Section: Alpha Wearable Device */}
             <div className="flex h-[126.9px] gap-5 h-full">
-              <div className="w-[140px] h-[95px] rounded-lg overflow-hidden flex-shrink-0 bg-[#808080]">
+              <div className="w-[100px] sm:w-[140px] h-[95px] rounded-lg overflow-hidden flex-shrink-0 bg-[#808080]">
                 <Image 
                   src="/watch.png"
                   alt="Alpha Wearable Device"
@@ -131,7 +131,7 @@ const SplitRevealSequence: React.FC<SplitRevealSequenceProps> = ({
               </div>
               <div className="text-white flex-1 flex flex-col justify-between py-2">
                 <div>
-                  <h3 className="text-xl font-semibold tracking-wide">
+                  <h3 className="text-lg sm:text-xl font-semibold tracking-wide">
                     <span className="text-white">ALPHA</span>{' '}
                     <span className="text-gray-400">WEARABLE</span>
                   </h3>

@@ -2,10 +2,10 @@ import React from 'react';
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white py-8">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="flex justify-between">
-          <div>
+    <footer className="bg-black text-white py-8 px-4">
+      <div className="max-w-full sm:max-w-6xl mx-auto">
+        <div className="flex flex-col sm:flex-row justify-between">
+          <div className="mb-4 sm:mb-0">
             <h3 className="font-bold mb-2">SERVICES</h3>
             <ul>
               <li>Option 1</li>
@@ -15,7 +15,7 @@ export default function Footer() {
               <li>Option 5</li>
             </ul>
           </div>
-          <div>
+          <div className="mb-4 sm:mb-0">
             <h3 className="font-bold mb-2">COMPANY</h3>
             <ul>
               <li>About Us</li>

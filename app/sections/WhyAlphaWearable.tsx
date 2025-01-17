@@ -31,19 +31,19 @@ const WhyAlphaWearable: React.FC<{ imageUrl: string }> = ({ imageUrl }) => {
   ];
 
   return (
-    <div className="bg-black text-white py-16 px-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="bg-black text-white py-16 px-4 sm:px-8">
+      <div className="max-w-full sm:max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row mb-12">
           <div className="md:w-1/2">
-            <h1 className="text-5xl font-bold mb-4">Why Alpha <br /> Wearable</h1>
-            <p className="text-lg">The digital mirror head can be sterilized in 15 minutes using a cassette autoclave.</p>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-4">Why Alpha <br /> Wearable</h1>
+            <p className="text-base sm:text-lg">The digital mirror head can be sterilized in 15 minutes using a cassette autoclave.</p>
           </div>
           <div className="md:w-1/2 flex justify-center items-center">
             <Image
               src={imageUrl}
               alt="Alpha Wearable"
-              width={500}
-              height={500}
+              width={300}
+              height={300}
               className="object-cover border-4 border-transparent"
             />
           </div>
@@ -52,7 +52,7 @@ const WhyAlphaWearable: React.FC<{ imageUrl: string }> = ({ imageUrl }) => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature) => (
             <div key={feature.title}>
-              <h2 className="text-2xl font-semibold mb-2" dangerouslySetInnerHTML={{ __html: feature.title }}></h2>
+              <h2 className="text-xl sm:text-2xl font-semibold mb-2" dangerouslySetInnerHTML={{ __html: feature.title }}></h2>
               <p className="text-sm text-gray-400 leading-relaxed">{feature.description}</p>
             </div>
           ))}

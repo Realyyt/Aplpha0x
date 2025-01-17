@@ -11,9 +11,9 @@ export default function WellnessComponent() {
         objectFit="cover"
         className="z-0"
       />
-      <div className="absolute bottom-16 left-8 z-10 text-white">
-        <h1 className="text-5xl font-bold mb-4">Built with wellness in mind</h1>
-        <p className="text-lg max-w-md">
+      <div className="absolute bottom-16 left-4 sm:left-8 z-10 text-white">
+        <h1 className="text-3xl sm:text-5xl font-bold mb-4">Built with wellness in mind</h1>
+        <p className="text-base sm:text-lg max-w-md">
           At 30 grams, the Halo Digital Mirror is no heavier than the traditional dental mirror, ensuring your hand muscles work less and your pinch force is minimized.
         </p>
       </div>
