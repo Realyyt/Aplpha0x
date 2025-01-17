@@ -54,14 +54,14 @@ const WearableFeatureShowcase: React.FC<{ watchImageUrl: string }> = ({ watchIma
   return (
     <div className="bg-black relative">
       <div className="max-w-full sm:max-w-7xl mx-auto h-[110vh] px-4 relative overflow-hidden">
-        {/* Watch Image - Now positioned relative to content */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] z-10">
+        {/* Watch Image - Updated with sticky positioning and rotation animation */}
+        <div className="sticky top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] z-10">
           <Image
             src={watchImageUrl}
             alt="Smart Wearable Device"
             width={400}
             height={400}
-            className="object-contain"
+            className="object-contain animate-spin-slow"
           />
         </div>
 

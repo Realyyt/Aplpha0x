@@ -46,7 +46,7 @@ const BioScanFeatures: React.FC = () => {
     <div className="bg-white w-full py-10">
       <div className="max-w-full sm:max-w-[1522.75px] mx-auto relative h-[100vh]">
         {/* Central Watch Image */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[900px] h-[300px] sm:h-[900px]">
+        <div className="absolute left-1/2 top-1/2 w-[300px] sm:w-[900px] h-[300px] sm:h-[900px] animate-move-horizontal">
           <Image
             src={"/r.png"}
             alt="Alpha Wearable Device"

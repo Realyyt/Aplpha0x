@@ -14,7 +14,7 @@ const TextReveal: React.FC<TextRevealProps> = ({ text, className }) => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.4,
+        staggerChildren: 0.5,
         delayChildren: 0.5,
       },
     },

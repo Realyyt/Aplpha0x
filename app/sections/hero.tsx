@@ -67,10 +67,10 @@ const SplitRevealSequence: React.FC<SplitRevealSequenceProps> = ({
 
       {/* Slow down the Split Reveal Overlays */}
       <div
-        className={`absolute top-0 left-0 w-full h-1/2 bg-black transition-transform duration-[2000ms] ease-in-out z-50 ${isRevealing ? 'translate-y-[-100%]' : 'translate-y-0'}`}
+        className={`absolute top-0 left-0 w-full h-1/2 bg-black transition-transform duration-[3000ms] ease-in-out z-50 ${isRevealing ? 'translate-y-[-100%]' : 'translate-y-0'}`}
       />
       <div
-        className={`absolute bottom-0 left-0 w-full h-1/2 bg-black transition-transform duration-[2000ms] ease-in-out z-50 ${isRevealing ? 'translate-y-[100%]' : 'translate-y-0'}`}
+        className={`absolute bottom-0 left-0 w-full h-1/2 bg-black transition-transform duration-[3000ms] ease-in-out z-50 ${isRevealing ? 'translate-y-[100%]' : 'translate-y-0'}`}
       />
 
       {/* Main Content */}
