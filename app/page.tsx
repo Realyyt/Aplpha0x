@@ -11,6 +11,7 @@ import ColorfulSplash from "./sections/splash";
 import Comment from "./sections/comment";
 import WellnessComponent from "./sections/c";
 import Footer from "./sections/footer";
+import PhotoGrid from "./sections/slab";
 // ... in your page component
 
 export default function Home() {
@@ -28,7 +29,7 @@ export default function Home() {
     />
     <BioScanFeatures />
     <WhyAlphaWearable imageUrl="/ride.png"/>
-    {/* <GridLayout/> */}
+    <PhotoGrid/>
     <Alpha />
     <ImageGallery />
     <MonitoringInfo />
