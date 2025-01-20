@@ -14,7 +14,6 @@ interface SplitRevealSequenceProps {
 }
 
 const SplitRevealSequence: React.FC<SplitRevealSequenceProps> = ({
-
   mainText = {
     title: "Sleep better,",
     subtitle: "Feel alive again",
@@ -41,17 +40,33 @@ const SplitRevealSequence: React.FC<SplitRevealSequenceProps> = ({
     return () => cancelAnimationFrame(requestId);
   }, []);
 
-  const getParallaxStyle = (speed: number) => ({
-    transform: `translate3d(0, ${scrollY * speed}px, 0)`,
-    willChange: 'transform'
-  });
+
+
+  const textVariants = {
+    hidden: { 
+      opacity: 0,
+      y: 60,
+      scale: 0.9,
+    },
+    visible: { 
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 1.2,
+        ease: "easeOut"
+      }
+    }
+  };
 
   return (
     <div className="relative w-full h-[100dvh] overflow-hidden">
-      {/* Background Image with enhanced parallax */}
-      <div 
-        className="absolute inset-0 transition-transform duration-300 ease-out"
-        style={getParallaxStyle(0.5)}
+      {/* Background Image */}
+      <motion.div 
+        className="absolute inset-0"
+        initial={{ opacity: 0, scale: 1.1 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
       >
         <Image 
           src={"/pf.jpg"}
@@ -60,7 +75,7 @@ const SplitRevealSequence: React.FC<SplitRevealSequenceProps> = ({
           priority
           className="object-cover"
         />
-      </div>
+      </motion.div>
 
       {/* Slow down the Split Reveal Overlays */}
       <div
@@ -72,12 +87,18 @@ const SplitRevealSequence: React.FC<SplitRevealSequenceProps> = ({
 
       {/* Main Content */}
       <div className="relative w-full h-full max-w-full sm:max-w-[1522.75px] mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Navbar with smoother parallax */}
-        <nav 
-          className={`absolute top-0 w-full p-4 flex justify-between items-center transition-transform duration-300 ease-out`}
-          style={getParallaxStyle(0.2)}
-        >
-          <div className="text-2xl">
+        {/* Navbar */}
+        <nav className="fixed top-0 left-0 right-0 w-full p-4 flex justify-between items-center z-50">
+          <motion.div 
+            initial={{ opacity: 0, y: 60, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ 
+              duration: 1.2,
+              delay: 1.5,
+              ease: "easeOut"
+            }}
+            className="text-2xl"
+          >
             <Image 
               src="/logo.png" 
               alt="logo" 
@@ -85,45 +106,101 @@ const SplitRevealSequence: React.FC<SplitRevealSequenceProps> = ({
               height={35.41} 
               className="w-[32px] h-[35.41px] sm:w-[32px] sm:h-[35.41px]"
             />
-          </div>
+          </motion.div>
           <div className="hidden md:flex gap-4 lg:gap-8 text-white">
             {['Science', 'About us', 'Contact', 'Partnerships'].map((text, index) => (
-              <span 
+              <motion.span 
                 key={index} 
-                className="hover:text-green-300 transition-opacity duration-[2000ms] ease-in-out opacity-0 hover:opacity-100 animate-fadeIn text-sm lg:text-base"
-                style={{ animationDelay: `${index * 0.5}s` }}
+                initial={{ opacity: 0, y: 60, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ 
+                  duration: 1.2,
+                  delay: 1.6 + index * 0.1,
+                  ease: "easeOut"
+                }}
+                className="hover:text-green-300 text-sm lg:text-base cursor-pointer"
               >
                 {text}
-              </span>
+              </motion.span>
             ))}
           </div>
-          <span 
-            className="bg-[#c0ff72] px-3 py-1.5 sm:px-4 sm:py-2 rounded-md text-xs sm:text-sm md:text-base hover:bg-[#c0ff72] transition-opacity duration-[2000ms] ease-in-out opacity-0 hover:opacity-100 animate-fadeIn whitespace-nowrap"
-            style={{ animationDelay: `${4 * 0.5}s` }}
+          <motion.span 
+            initial={{ opacity: 0, y: 60, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ 
+              duration: 1.2,
+              delay: 2.0,
+              ease: "easeOut"
+            }}
+            className="bg-[#c0ff72] px-3 py-1.5 sm:px-4 sm:py-2 rounded-md text-xs sm:text-sm md:text-base hover:bg-[#c0ff72] whitespace-nowrap cursor-pointer"
           >
             Order now
-          </span>
+          </motion.span>
         </nav>
 
-        {/* Main Text Content with enhanced parallax */}
-        <div 
-          className="absolute top-[20%] sm:top-1/4 left-4 sm:left-8 md:left-16 text-white transition-all duration-300 ease-out max-w-[90%] sm:max-w-lg"
-          style={getParallaxStyle(0.3)}
-        >
-          <TextReveal text={mainText.title} className="text-2xl sm:text-4xl md:text-6xl font-bold mb-2" />
-          <TextReveal text={mainText.subtitle} className="text-2xl sm:text-4xl md:text-6xl italic mb-4" />
-          <TextReveal text={mainText.description} className="text-xs sm:text-sm md:text-base text-gray-200 max-w-[90%] sm:max-w-full" />
+        {/* Main Text Content */}
+        <div className="absolute top-[20%] sm:top-1/4 left-4 sm:left-8 md:left-16 text-white max-w-[90%] sm:max-w-lg">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ margin: "-20%" }}
+            variants={{
+              ...textVariants,
+              visible: {
+                ...textVariants.visible,
+                transition: { duration: 1.4, delay: 0.8 }
+              }
+            }}
+          >
+            <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold mb-2">{mainText.title}</h1>
+          </motion.div>
+          
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ margin: "-20%" }}
+            variants={{
+              ...textVariants,
+              visible: {
+                ...textVariants.visible,
+                transition: { duration: 1.4, delay: 1.0 }
+              }
+            }}
+          >
+            <h2 className="text-2xl sm:text-4xl md:text-6xl italic mb-4">{mainText.subtitle}</h2>
+          </motion.div>
+
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ margin: "-20%" }}
+            variants={{
+              ...textVariants,
+              visible: {
+                ...textVariants.visible,
+                transition: { duration: 1.4, delay: 1.2 }
+              }
+            }}
+          >
+            <p className="text-xs sm:text-sm md:text-base text-gray-200 max-w-[90%] sm:max-w-full">
+              {mainText.description}
+            </p>
+          </motion.div>
         </div>
 
-        {/* Box with enhanced parallax and scroll trigger */}
+        {/* Box */}
         <motion.div 
-          className="absolute bottom-4 sm:bottom-8 right-4 sm:right-8 bg-white/5 backdrop-blur-[68.52%] p-2 sm:p-3 md:p-5 rounded-2xl
-            w-[240px] sm:w-[340px] md:w-[470px] transition-all duration-300 ease-out"
-          style={getParallaxStyle(0.15)}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5, duration: 0.5 }}
+          className="absolute bottom-4 sm:bottom-8 right-4 sm:right-8 bg-white/5 backdrop-blur-[68.52%] p-2 sm:p-3 md:p-5 rounded-2xl w-[240px] sm:w-[340px] md:w-[470px]"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ margin: "-20%" }}
+          variants={{
+            ...textVariants,
+            visible: {
+              ...textVariants.visible,
+              transition: { duration: 1.4, delay: 1.4 }
+            }
+          }}
         >
           <div className={`text-${scrollY > 100 ? 'gray-400' : 'white'}`}>
             <div className="flex gap-2 sm:gap-3 md:gap-5">
