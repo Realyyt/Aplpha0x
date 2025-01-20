@@ -1,6 +1,7 @@
 "use client"
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const WhyAlphaWearable: React.FC<{ imageUrl: string }> = ({ imageUrl }) => {
   const features = [
@@ -34,11 +35,36 @@ const WhyAlphaWearable: React.FC<{ imageUrl: string }> = ({ imageUrl }) => {
     <div className="bg-black text-white py-16 px-4 sm:px-8">
       <div className="max-w-full sm:max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row mb-12">
-          <div className="md:w-1/2">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-4">Why Alpha <br /> Wearable</h1>
-            <p className="text-base sm:text-lg">The digital mirror head can be sterilized in 15 minutes using a cassette autoclave.</p>
-          </div>
-          <div className="md:w-1/2 flex justify-center items-center">
+          <motion.div 
+            className="md:w-1/2"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ margin: "-100px" }}
+          >
+            <motion.h1 
+              className="text-4xl sm:text-5xl font-bold mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Why Alpha <br /> Wearable
+            </motion.h1>
+            <motion.p 
+              className="text-base sm:text-lg"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              The digital mirror head can be sterilized in 15 minutes using a cassette autoclave.
+            </motion.p>
+          </motion.div>
+          <motion.div 
+            className="md:w-1/2 flex justify-center items-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
             <Image
               src={imageUrl}
               alt="Alpha Wearable"
@@ -46,15 +72,37 @@ const WhyAlphaWearable: React.FC<{ imageUrl: string }> = ({ imageUrl }) => {
               height={300}
               className="object-cover border-4 border-transparent"
             />
-          </div>
+          </motion.div>
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature) => (
-            <div key={feature.title}>
-              <h2 className="text-xl sm:text-2xl font-semibold mb-2" dangerouslySetInnerHTML={{ __html: feature.title }}></h2>
-              <p className="text-sm text-gray-400 leading-relaxed">{feature.description}</p>
-            </div>
+          {features.map((feature, index) => (
+            <motion.div 
+              key={feature.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 0.8,
+                delay: 0.2 + (index * 0.1) // Staggered delay based on index
+              }}
+              viewport={{ margin: "-100px" }}
+            >
+              <motion.h2 
+                className="text-xl sm:text-2xl font-semibold mb-2"
+                dangerouslySetInnerHTML={{ __html: feature.title }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 + (index * 0.1) }}
+              />
+              <motion.p 
+                className="text-sm text-gray-400 leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
+              >
+                {feature.description}
+              </motion.p>
+            </motion.div>
           ))}
         </div>
       </div>

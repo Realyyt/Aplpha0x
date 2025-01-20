@@ -45,7 +45,7 @@ const AlphaWearableHighlight: React.FC = () => {
           }}
           className="text-center font-helveticaneue text-[36px] sm:text-[76px] font-bold leading-tight sm:leading-[76px] tracking-[-0.04em] text-white"
         >
-          <span>The Alpha Wearable measures various health parameters through its Bio-Scan technology</span>
+          <span>We are committed to enhancing overall well-being through the use of innovative and natural health solutions.</span>
         </motion.h3>
         <motion.h4 
           initial="hidden"
@@ -60,10 +60,10 @@ const AlphaWearableHighlight: React.FC = () => {
           }}
           className="text-center font-helveticaneue text-[14px] font-normal leading-[18px] text-white"
         >
-          The digital mirror head can be sterilized in 15 minutes using a cassette autoclave with a disinfectant wipe before being placed back on the charger.
+          Anywhere Healing merges cutting-edge technology with holistic health practices, offering products like the Alpha Wearable that utilize advanced Bio-Scan and frequency therapy.
         </motion.h4>
-        <button className="min-w-[188px] rounded-lg px-4 sm:px-[30px] font-medium bg-indigo_A100 hover:bg-indigo_A200 text-white transition-transform hover:scale-105">
-          View Alpha Wearable
+        <button className="w-[140.22px] h-[43px] rounded-[8px] px-[14px] py-[10px] font-medium bg-gradient-to-r from-[#02B6EB] to-[#1D60A6] hover:bg-gradient-to-r hover:from-[#02B6EB] hover:to-[#1D60A6] text-white transition-transform hover:scale-105">
+          View more 
         </button>
       </div>
     </div>
