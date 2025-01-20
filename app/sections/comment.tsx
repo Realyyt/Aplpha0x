@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import Image from 'next/image'; // Import Image from next/image for optimized images
 
 const testimonials = [
   {
     type: 'image',
-    src: './hey.png', // Replace with your image path
+    src: '/hey.png', // Corrected the image path to start with a leading slash
     alt: 'Testimonial Image',
   },
   {
@@ -40,11 +41,15 @@ export default function Testimonials() {
         <button onClick={handlePrev} className="text-white mx-2">←</button>
         <div className="flex flex-col items-center mx-4">
           {testimonials[currentIndex].type === 'image' ? (
-            <img
-              src={testimonials[currentIndex].src}
-              alt={testimonials[currentIndex].alt}
-              className="rounded-lg"
-            />
+            <div className="rounded-lg">
+              <Image
+                src={testimonials[currentIndex].src ?? ''}
+                alt={testimonials[currentIndex].alt ?? ''}
+                layout="fill"
+                objectFit="cover"
+                className="rounded-lg"
+              />
+            </div>
           ) : (
             <div className="bg-gray-800 p-4 rounded-lg">
               <p className="text-lg italic max-w-xl text-center">{testimonials[currentIndex].content}</p>

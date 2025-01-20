@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion,  } from 'framer-motion';
 
 interface FeatureSection {
   title: string;
@@ -28,10 +28,7 @@ const features: FeatureSection[] = [
 const WearableFeatureShowcase: React.FC<{ watchImageUrl: string }> = ({ watchImageUrl }) => {
   const [rotation, setRotation] = useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -65,7 +62,7 @@ const WearableFeatureShowcase: React.FC<{ watchImageUrl: string }> = ({ watchIma
 
             {/* Content Sections */}
             <div className="relative h-full">
-              {features.map((feature, index) => (
+              {features.map((feature) => (
                 <motion.div
                   key={feature.title}
                   className={`

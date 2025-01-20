@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, } from 'framer-motion';
 
 interface TextRevealProps {
   text: string;
@@ -9,7 +9,6 @@ interface TextRevealProps {
 
 const TextReveal: React.FC<TextRevealProps> = ({ text, className }) => {
   const words = text.split(' ');
-  const { scrollYProgress } = useScroll();
 
   const container = {
     hidden: { opacity: 0 },

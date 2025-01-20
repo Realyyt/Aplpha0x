@@ -1,6 +1,7 @@
 "use client"
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const FirstIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -61,36 +62,90 @@ const BioScanFeatures: React.FC = () => {
         {/* Features Container with balanced spacing */}
         <div className="relative z-10 h-full flex flex-col justify-between">
           {/* Top Feature */}
-          <div className={`flex ${features[0].alignment === 'left' ? 'justify-start' : 'justify-end'}`}>
+          <motion.div 
+            initial={{ opacity: 0, x: features[0].alignment === 'left' ? -50 : 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ margin: "-100px" }}
+            className={`flex ${features[0].alignment === 'left' ? 'justify-start' : 'justify-end'}`}
+          >
             <div className={`w-full max-w-[460px] ${features[0].alignment === 'left' ? 'pl-4 sm:pl-8' : 'pr-4 sm:pr-8'}`}>
-              <div className="flex items-center gap-3 mb-4">
-                {features[0].icon}
+              <motion.div 
+                initial={{ opacity: 0, width: 0 }}
+                whileInView={{ opacity: 1, width: "100%" }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="flex items-center gap-3 mb-4"
+              >
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  {features[0].icon}
+                </motion.div>
                 <div className="h-[1px] bg-black flex-grow"/>
-              </div>
-              <h2 className="text-[36px] sm:text-[56px] leading-[1.1] font-light mb-4 tracking-[-0.02em]">
+              </motion.div>
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="text-[36px] sm:text-[56px] leading-[1.1] font-light mb-4 tracking-[-0.02em] text-black"
+              >
                 {features[0].title}
-              </h2>
-              <p className="text-gray-600 text-base leading-relaxed max-w-[400px]">
+              </motion.h2>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-[400px] z-10 relative"
+              >
                 {features[0].description}
-              </p>
+              </motion.p>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Bottom Feature - Adjusted position */}
-          <div className={`flex ${features[1].alignment === 'left' ? 'justify-start' : 'justify-end'} mt-[-50px] sm:mt-[-100px]`}>
+          {/* Bottom Feature */}
+          <motion.div 
+            initial={{ opacity: 0, x: features[1].alignment === 'left' ? -50 : 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ margin: "-100px" }}
+            className={`flex ${features[1].alignment === 'left' ? 'justify-start' : 'justify-end'} mt-[-50px] sm:mt-[-100px]`}
+          >
             <div className={`w-full max-w-[460px] ${features[1].alignment === 'left' ? 'pl-4 sm:pl-8' : 'pr-4 sm:pr-8'}`}>
-              <div className="flex items-center gap-3 mb-4">
-                {features[1].icon}
+              <motion.div 
+                initial={{ opacity: 0, width: 0 }}
+                whileInView={{ opacity: 1, width: "100%" }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="flex items-center gap-3 mb-4"
+              >
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  {features[1].icon}
+                </motion.div>
                 <div className="h-[1px] bg-black flex-grow"/>
-              </div>
-              <h2 className="text-[36px] sm:text-[56px] leading-[1.1] font-light mb-4 tracking-[-0.02em]">
+              </motion.div>
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="text-[36px] sm:text-[56px] leading-[1.1] font-light mb-4 tracking-[-0.02em] text-black"
+              >
                 {features[1].title}
-              </h2>
-              <p className="text-gray-600 text-base leading-relaxed max-w-[400px]">
+              </motion.h2>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-[400px] z-10 relative"
+              >
                 {features[1].description}
-              </p>
+              </motion.p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
