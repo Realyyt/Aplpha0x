@@ -54,7 +54,7 @@ const SplitRevealSequence: React.FC<SplitRevealSequenceProps> = ({
         style={getParallaxStyle(0.5)}
       >
         <Image 
-          src={"/1.png"}
+          src={"/pf.jpg"}
           alt="Background"
           fill
           priority
