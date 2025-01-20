@@ -1,3 +1,4 @@
+"use client"
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
@@ -34,7 +35,7 @@ export default function MonitoringInfo() {
 
   return (
     <div className="relative h-auto">
-      <div className="flex flex-col gap-[10vh] sm:gap-0 sm:flex-row sm:justify-center sm:items-center sm:p-8 sm:bg-white sm:mt-16">
+      <div className="flex flex-col gap-[20vh] sm:gap-[10vh] sm:flex-row sm:justify-center sm:items-center sm:p-8 sm:bg-white sm:mt-16">
         {/* Sleep Monitoring Section */}
         <div 
           id="sleep-section"
@@ -43,15 +44,15 @@ export default function MonitoringInfo() {
           <div className={`
             w-full p-8 sm:p-0 
             sm:relative sm:left-4 sm:w-auto
-            transform transition-all duration-700
+            transform transition-all duration-[2000ms]
             ${elementVisible.sleep 
               ? 'opacity-100 translate-z-0 rotate-0' 
               : 'opacity-0 -translate-z-96 rotate-12'
             }
           `}>
-            <div className="bg-black h-[2px] w-[200px] sm:w-[545.32px] mb-2"></div>
-            <h2 className="text-lg sm:text-xl font-bold mb-2">Sleep Monitoring</h2>
-            <p className="text-gray-600 mb-4 max-w-xs">
+            <div className="bg-black h-[2px] w-[200px] sm:w-[545.32px] mb-4"></div>
+            <h2 className="text-lg sm:text-xl font-bold mb-4">Sleep Monitoring</h2>
+            <p className="text-gray-600 mb-8 max-w-xs">
               Track your sleep patterns effortlessly. Our app analyzes your nightly rest, providing insights into sleep quality, duration, and disruptions.
             </p>
           </div>
@@ -64,10 +65,10 @@ export default function MonitoringInfo() {
         >
           <div className={`
             w-[200px] mx-auto sm:mx-0
-            transform transition-all duration-700
+            transform transition-all duration-[2500ms] ease-out
             ${elementVisible.image 
-              ? 'opacity-100 scale-100 translate-z-0' 
-              : 'opacity-0 scale-90 -translate-z-96'
+              ? 'opacity-100 translate-y-0 scale-100' 
+              : 'opacity-0 translate-y-96 scale-90'
             }
           `}>
             <Image
@@ -88,15 +89,15 @@ export default function MonitoringInfo() {
           <div className={`
             w-full p-8 sm:p-0
             sm:relative sm:right-4 sm:w-auto
-            transform transition-all duration-700
+            transform transition-all duration-[2000ms]
             ${elementVisible.heart 
               ? 'opacity-100 translate-z-0 rotate-0' 
               : 'opacity-0 translate-z-96 -rotate-12'
             }
           `}>
-            <div className="bg-black h-[2px] w-[200px] sm:w-[545.32px] mb-2"></div>
-            <h2 className="text-lg sm:text-xl font-bold mb-2 mr-4">Heart Rate Monitoring</h2>
-            <p className="text-gray-600 mb-4 max-w-xs">
+            <div className="bg-black h-[2px] w-[200px] sm:w-[545.32px] mb-4"></div>
+            <h2 className="text-lg sm:text-xl font-bold mb-4">Heart Rate Monitoring</h2>
+            <p className="text-gray-600 mb-8 max-w-xs">
               Keep an eye on your heart health in real-time. Our app continuously monitors your heart rate, helping you understand your cardiovascular trends and detect any irregularities early.
             </p>
           </div>
