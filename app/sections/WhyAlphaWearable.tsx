@@ -32,9 +32,9 @@ const WhyAlphaWearable: React.FC<{ imageUrl: string }> = ({ imageUrl }) => {
   ];
 
   return (
-    <div className="bg-black text-white py-16 px-4 sm:px-8">
+    <div className="bg-black text-white py-24 px-4 sm:px-8 min-h-screen flex items-center">
       <div className="max-w-full sm:max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row mb-12">
+        <div className="flex flex-col md:flex-row mb-24">
           <motion.div 
             className="md:w-1/2"
             initial={{ opacity: 0, y: 20 }}
@@ -75,10 +75,11 @@ const WhyAlphaWearable: React.FC<{ imageUrl: string }> = ({ imageUrl }) => {
           </motion.div>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16">
           {features.map((feature, index) => (
             <motion.div 
               key={feature.title}
+              className="space-y-4"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ 
@@ -88,14 +89,14 @@ const WhyAlphaWearable: React.FC<{ imageUrl: string }> = ({ imageUrl }) => {
               viewport={{ margin: "-100px" }}
             >
               <motion.h2 
-                className="text-xl sm:text-2xl font-semibold mb-2"
+                className="text-2xl sm:text-3xl font-semibold"
                 dangerouslySetInnerHTML={{ __html: feature.title }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 + (index * 0.1) }}
               />
               <motion.p 
-                className="text-sm text-gray-400 leading-relaxed"
+                className="text-base text-gray-400 leading-relaxed"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}

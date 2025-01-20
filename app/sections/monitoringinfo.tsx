@@ -34,49 +34,50 @@ export default function MonitoringInfo() {
   }, []);
 
   return (
-    <div className="relative h-auto">
-      <div className="flex flex-col gap-[20vh] sm:gap-[10vh] sm:flex-row sm:justify-center sm:items-center sm:p-8 sm:bg-white sm:mt-16">
+    <div className="relative h-[100vh] overflow-hidden bg-white">
+      <div className="flex flex-col h-full">
         {/* Sleep Monitoring Section */}
         <div 
           id="sleep-section"
-          className="observe-section h-screen sm:h-auto relative"
+          className="observe-section h-[100vh] relative flex items-center"
         >
           <div className={`
-            w-full p-8 sm:p-0 
-            sm:relative sm:left-4 sm:w-auto
+            w-full max-w-[1440px] mx-auto px-8 flex items-center
             transform transition-all duration-[2000ms]
             ${elementVisible.sleep 
-              ? 'opacity-100 translate-z-0 rotate-0' 
-              : 'opacity-0 -translate-z-96 rotate-12'
+              ? 'opacity-100 translate-x-0' 
+              : 'opacity-0 -translate-x-96'
             }
           `}>
-            <div className="bg-black h-[2px] w-[200px] sm:w-[545.32px] mb-4"></div>
-            <h2 className="text-lg sm:text-xl font-bold mb-4">Sleep Monitoring</h2>
-            <p className="text-gray-600 mb-8 max-w-xs">
-              Track your sleep patterns effortlessly. Our app analyzes your nightly rest, providing insights into sleep quality, duration, and disruptions.
-            </p>
+            <div className="w-1/2">
+              <div className="bg-black h-[2px] w-[120px] mb-8"></div>
+              <h2 className="text-3xl font-bold mb-6">Sleep Monitoring</h2>
+              <p className="text-gray-600 max-w-[400px] text-lg leading-relaxed">
+                Track your sleep patterns effortlessly. Our app analyzes your nightly rest, providing insights into sleep quality, duration, and disruptions.
+              </p>
+            </div>
           </div>
         </div>
 
         {/* Image Section */}
         <div 
           id="image-section"
-          className="observe-section h-screen sm:h-auto relative"
+          className="observe-section fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-10"
         >
           <div className={`
-            w-[200px] mx-auto sm:mx-0
             transform transition-all duration-[2500ms] ease-out
             ${elementVisible.image 
-              ? 'opacity-100 translate-y-0 scale-100' 
-              : 'opacity-0 translate-y-96 scale-90'
+              ? 'opacity-100 scale-100' 
+              : 'opacity-0 scale-90'
             }
           `}>
             <Image
               src="/p1.png"
               alt="Vital Signs"
-              layout="fixed"
-              width={328.34}
-              height={676.99}
+              width={500}
+              height={1000}
+              className="w-auto h-[90vh] object-contain"
+              priority
             />
           </div>
         </div>
@@ -84,22 +85,23 @@ export default function MonitoringInfo() {
         {/* Heart Rate Monitoring Section */}
         <div 
           id="heart-section"
-          className="observe-section h-screen sm:h-auto relative"
+          className="observe-section h-[100vh] relative flex items-center"
         >
           <div className={`
-            w-full p-8 sm:p-0
-            sm:relative sm:right-4 sm:w-auto
+            w-full max-w-[1440px] mx-auto px-8 flex items-center justify-end
             transform transition-all duration-[2000ms]
             ${elementVisible.heart 
-              ? 'opacity-100 translate-z-0 rotate-0' 
-              : 'opacity-0 translate-z-96 -rotate-12'
+              ? 'opacity-100 translate-x-0' 
+              : 'opacity-0 translate-x-96'
             }
           `}>
-            <div className="bg-black h-[2px] w-[200px] sm:w-[545.32px] mb-4"></div>
-            <h2 className="text-lg sm:text-xl font-bold mb-4">Heart Rate Monitoring</h2>
-            <p className="text-gray-600 mb-8 max-w-xs">
-              Keep an eye on your heart health in real-time. Our app continuously monitors your heart rate, helping you understand your cardiovascular trends and detect any irregularities early.
-            </p>
+            <div className="w-1/2 text-right">
+              <div className="bg-black h-[2px] w-[120px] mb-8 ml-auto"></div>
+              <h2 className="text-3xl font-bold mb-6">Heart Rate Monitoring</h2>
+              <p className="text-gray-600 max-w-[400px] text-lg leading-relaxed ml-auto">
+                Keep an eye on your heart health in real-time. Our app continuously monitors your heart rate, helping you understand your cardiovascular trends and detect any irregularities early.
+              </p>
+            </div>
           </div>
         </div>
       </div>

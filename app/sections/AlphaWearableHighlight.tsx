@@ -21,7 +21,7 @@ const AlphaWearableHighlight: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center bg-black py-16 sm:py-[164px] min-h-screen">
+    <div className="flex flex-col items-center justify-center bg-black py-16 sm:py-[164px] h-screen">
       <div className="flex flex-col items-center gap-5 w-full max-w-[879.59px] mx-auto px-4">
         <motion.h2 
           initial="hidden"
@@ -29,6 +29,7 @@ const AlphaWearableHighlight: React.FC = () => {
           viewport={{ margin: "-20%" }}
           variants={textVariants}
           className="font-helveticaneue text-[14px] font-normal text-white text-center"
+          transition={{ duration: 1.2, ease: "easeOut" }}
         >
           Alpha wearable
         </motion.h2>

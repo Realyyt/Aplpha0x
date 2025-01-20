@@ -38,17 +38,17 @@ const WearableFeatureShowcase: React.FC<{ watchImageUrl: string }> = ({ watchIma
   }, []);
 
   return (
-    <div ref={containerRef} className="bg-black relative h-[100vh] overflow-hidden">
-      <div className="sticky top-0 h-screen">
-        <div className="max-w-7xl mx-auto h-full px-4 py-16 sm:py-24 relative">
+    <div ref={containerRef} className="bg-black relative min-h-screen h-full w-full overflow-hidden pb-16">
+      <div className="h-screen w-full">
+        <div className="max-w-7xl mx-auto h-full w-full px-4 py-16 sm:py-24 relative">
           <div className="relative w-full h-full">
-            {/* Rotating Watch Image */}
+            {/* Rotating Watch Image - Increased size */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
               <motion.div
                 style={{
                   transform: `rotateY(${rotation}deg)`,
                 }}
-                className="w-[500px] h-[500px] perspective-1000"
+                className="w-[700px] h-[700px] perspective-1000"
               >
                 <Image
                   src={watchImageUrl}
@@ -60,7 +60,7 @@ const WearableFeatureShowcase: React.FC<{ watchImageUrl: string }> = ({ watchIma
               </motion.div>
             </div>
 
-            {/* Content Sections */}
+            {/* Content Sections - Moved further to corners */}
             <div className="relative h-full">
               {features.map((feature) => (
                 <motion.div
@@ -68,8 +68,8 @@ const WearableFeatureShowcase: React.FC<{ watchImageUrl: string }> = ({ watchIma
                   className={`
                     absolute w-[400px] z-10
                     ${feature.alignment === 'left' 
-                      ? 'left-[5%] top-[15%] text-left' 
-                      : 'right-[5%] bottom-[15%] text-right'}
+                      ? 'left-0 top-[2%] text-left'
+                      : 'right-0 bottom-[2%] text-right'}
                   `}
                   initial={{ opacity: 0, x: feature.alignment === 'left' ? -50 : 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
