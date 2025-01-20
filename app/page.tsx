@@ -1,4 +1,5 @@
 "use client"
+import { ParallaxProvider, Parallax } from "react-scroll-parallax"
 import Hero from "./sections/hero";
 import AlphaWearableHighlight from "./sections/AlphaWearableHighlight"
 import WearableFeatureShowcase from './sections/WearableFeatureShowcase';
@@ -16,27 +17,53 @@ import PhotoGrid from "./sections/slab";
 
 export default function Home() {
   return (
-    <div className="scrollable overflow-x-hidden ">
-      <style jsx global>{`
-        html {
-          scroll-behavior: smooth;
-        }
-      `}</style>
-      <Hero/>
-      <AlphaWearableHighlight/>
-      <WearableFeatureShowcase 
-      watchImageUrl="/watch2.png" 
-    />
-    <BioScanFeatures />
-    <WhyAlphaWearable imageUrl="/ride.png"/>
-    <PhotoGrid/>
-    <Alpha />
-    <ImageGallery />
-    <MonitoringInfo />
-    <ColorfulSplash />
-    <Comment />
-    <WellnessComponent />
-    <Footer />
-    </div>
+    <ParallaxProvider>
+      <div className="scrollable overflow-x-hidden">
+        <style jsx global>{`
+          html {
+            scroll-behavior: smooth;
+          }
+        `}</style>
+        <Parallax speed={-10}>
+          <Hero />
+        </Parallax>
+        <Parallax speed={-5}>
+          <AlphaWearableHighlight />
+        </Parallax>
+        <Parallax speed={-8}>
+          <WearableFeatureShowcase watchImageUrl="/watch2.png" />
+        </Parallax>
+        <Parallax speed={-10}>
+          <BioScanFeatures />
+        </Parallax>
+        <Parallax speed={-12}>
+          <WhyAlphaWearable imageUrl="/ride.png"/>
+        </Parallax>
+        <Parallax speed={-15}>
+          <PhotoGrid/>
+        </Parallax>
+        <Parallax speed={-18}>
+          <Alpha />
+        </Parallax>
+        <Parallax speed={-20}>
+          <ImageGallery />
+        </Parallax>
+        <Parallax speed={-22}>
+          <MonitoringInfo />
+        </Parallax>
+        <Parallax speed={-25}>
+          <ColorfulSplash />
+        </Parallax>
+        <Parallax speed={-28}>
+          <Comment />
+        </Parallax>
+        <Parallax speed={-30}>
+          <WellnessComponent />
+        </Parallax>
+        <Parallax speed={-32}>
+          <Footer />
+        </Parallax>
+      </div>
+    </ParallaxProvider>
   );
 }

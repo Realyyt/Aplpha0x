@@ -1,6 +1,7 @@
 "use client"
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 interface FeatureSection {
   title: string;
@@ -25,84 +26,107 @@ const features: FeatureSection[] = [
 ];
 
 const WearableFeatureShowcase: React.FC<{ watchImageUrl: string }> = ({ watchImageUrl }) => {
-  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [rotation, setRotation] = useState(0);
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
 
   useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    };
-
-    const handleIntersect = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-fade-in');
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(handleIntersect, observerOptions);
-
-    sectionRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => observer.disconnect();
+    const interval = setInterval(() => {
+      setRotation((prev) => (prev + 1) % 360);
+    }, 50);
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="bg-black relative" ref={containerRef}>
-      <div className="max-w-full sm:max-w-7xl mx-auto min-h-[100dvh] px-4 py-16 sm:py-24 relative overflow-hidden">
-        {/* Container for watch with relative positioning */}
-        <div className="relative w-full h-full">
-          {/* Watch Image - Now contained within parent boundaries */}
-          <div className="absolute sm:sticky top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] sm:w-[250px] md:w-[300px] lg:w-[400px] aspect-square z-10">
-            <Image
-              src={watchImageUrl}
-              alt="Smart Wearable Device"
-              fill
-              className="object-contain animate-spin-slow"
-              priority
-            />
-          </div>
-
-          {/* Content Sections - Improved responsive layout */}
-          <div className="relative min-h-[100dvh] sm:min-h-0">
-            {features.map((feature, index) => (
-              <div
-                key={feature.title}
-                ref={(el) => {
-                  if (el) sectionRefs.current[index] = el;
-                }}
-                className={`
-                  sm:absolute flex items-center opacity-0 transition-all duration-1000 ease-out px-4 sm:px-6
-                  ${index === 0 ? 'mb-[60vh] sm:mb-0' : 'mt-[60vh] sm:mt-0'}
-                  ${feature.alignment === 'left' 
-                    ? 'sm:top-0 sm:left-0 justify-start' 
-                    : 'sm:bottom-0 sm:right-0 justify-end'}
-                `}
+    <div ref={containerRef} className="bg-black relative h-[100vh] overflow-hidden">
+      <div className="sticky top-0 h-screen">
+        <div className="max-w-7xl mx-auto h-full px-4 py-16 sm:py-24 relative">
+          <div className="relative w-full h-full">
+            {/* Rotating Watch Image */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+              <motion.div
                 style={{
-                  width: '100%',
-                  maxWidth: '100%',
+                  transform: `rotateY(${rotation}deg)`,
                 }}
+                className="w-[500px] h-[500px] perspective-1000"
               >
-                <div className={`w-full sm:max-w-[400px] ${feature.alignment === 'right' ? 'sm:ml-auto' : 'sm:mr-auto'}`}>
-                  <div className="mb-2 sm:mb-4">
-                    <span className="text-blue-400 text-2xl sm:text-xl">{feature.icon}</span>
+                <Image
+                  src={watchImageUrl}
+                  alt="Smart Wearable Device"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </motion.div>
+            </div>
+
+            {/* Content Sections */}
+            <div className="relative h-full">
+              {features.map((feature, index) => (
+                <motion.div
+                  key={feature.title}
+                  className={`
+                    absolute w-[400px] z-10
+                    ${feature.alignment === 'left' 
+                      ? 'left-[5%] top-[15%] text-left' 
+                      : 'right-[5%] bottom-[15%] text-right'}
+                  `}
+                  initial={{ opacity: 0, x: feature.alignment === 'left' ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ margin: "-100px" }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                  {/* Icon line decoration */}
+                  <div className={`mb-8 relative ${feature.alignment === 'left' ? 'text-left' : 'text-right'}`}>
+                    <div className={`absolute ${feature.alignment === 'left' ? 'left-0' : 'right-0'} w-[200px] h-[1px] bg-white/20 top-1/2`} />
+                    {feature.alignment === 'left' && (
+                      <motion.span 
+                        className="relative inline-block text-2xl"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ delay: 0.5 }}
+                      >
+                        {feature.icon}
+                      </motion.span>
+                    )}
                   </div>
                   
-                  <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-4 tracking-tight text-white">
+                  <motion.h2 
+                    className="text-5xl font-light mb-4 tracking-wide text-white"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                  >
                     {feature.title}
-                  </h2>
+                  </motion.h2>
                   
-                  <p className="text-gray-400 text-base sm:text-base leading-relaxed max-w-[90%] sm:max-w-full">
+                  <motion.p 
+                    className="text-gray-400 text-lg leading-relaxed"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                  >
                     {feature.description}
-                  </p>
-                </div>
-              </div>
-            ))}
+                  </motion.p>
+
+                  {feature.alignment === 'right' && (
+                    <div className="mt-8">
+                      <motion.span 
+                        className="relative inline-block text-2xl"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ delay: 0.5 }}
+                      >
+                        {feature.icon}
+                      </motion.span>
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

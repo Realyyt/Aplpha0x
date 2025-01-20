@@ -14,6 +14,7 @@ interface SplitRevealSequenceProps {
 }
 
 const SplitRevealSequence: React.FC<SplitRevealSequenceProps> = ({
+
   mainText = {
     title: "Sleep better,",
     subtitle: "Feel alive again",

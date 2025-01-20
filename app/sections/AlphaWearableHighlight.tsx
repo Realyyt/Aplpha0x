@@ -6,13 +6,15 @@ const AlphaWearableHighlight: React.FC = () => {
   const textVariants = {
     hidden: { 
       opacity: 0,
-      y: 20,
+      y: 60,
+      scale: 0.9,
     },
     visible: { 
       opacity: 1,
       y: 0,
+      scale: 1,
       transition: {
-        duration: 0.8,
+        duration: 1.2,
         ease: "easeOut"
       }
     }
@@ -24,7 +26,7 @@ const AlphaWearableHighlight: React.FC = () => {
         <motion.h2 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-20%" }}
           variants={textVariants}
           className="font-helveticaneue text-[14px] font-normal text-white text-center"
         >
@@ -33,12 +35,12 @@ const AlphaWearableHighlight: React.FC = () => {
         <motion.h3 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-20%" }}
           variants={{
             ...textVariants,
             visible: {
               ...textVariants.visible,
-              transition: { duration: 1, delay: 0.2 }
+              transition: { duration: 1.4, delay: 0.2 }
             }
           }}
           className="text-center font-helveticaneue text-[36px] sm:text-[76px] font-bold leading-tight sm:leading-[76px] tracking-[-0.04em] text-white"
@@ -48,12 +50,12 @@ const AlphaWearableHighlight: React.FC = () => {
         <motion.h4 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ margin: "-20%" }}
           variants={{
             ...textVariants,
             visible: {
               ...textVariants.visible,
-              transition: { duration: 1, delay: 0.4 }
+              transition: { duration: 1.4, delay: 0.4 }
             }
           }}
           className="text-center font-helveticaneue text-[14px] font-normal leading-[18px] text-white"
