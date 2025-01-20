@@ -21,12 +21,12 @@ export default function WellnessComponent() {
   };
 
   return (
-    <div className="relative h-screen w-full z-0">
+    <div className="relative h-screen w-full z-[2]">
       <Image
-        src="/c.png" // Replace with your image path
+        src="/c.png"
         alt="Wellness Image"
-        layout="fill"
-        objectFit="cover"
+        fill
+        style={{ objectFit: "cover" }}
         className="z-0"
       />
       <div className="absolute bottom-16 left-4 sm:left-8 z-[1] text-white">

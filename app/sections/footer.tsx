@@ -21,7 +21,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-black text-white py-16 px-4 relative z-0">
+    <footer className="bg-black text-white py-16 px-4 relative z-[1]">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <motion.div

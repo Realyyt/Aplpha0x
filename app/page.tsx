@@ -18,7 +18,7 @@ import PhotoGrid from "./sections/slab";
 export default function Home() {
   return (
     <ParallaxProvider>
-      <div className="scrollable overflow-x-hidden">
+      <div className="scrollable overflow-x-hidden bg-black">
         <style jsx global>{`
           html {
             scroll-behavior: smooth;
@@ -60,7 +60,7 @@ export default function Home() {
         <Parallax speed={-30}>
           <WellnessComponent />
         </Parallax>
-        <Parallax speed={-32}>
+        <Parallax speed={0}>
           <Footer />
         </Parallax>
       </div>
