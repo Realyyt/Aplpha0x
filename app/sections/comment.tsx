@@ -50,7 +50,7 @@ export default function Testimonials() {
   };
 
   return (
-    <div className="bg-black min-h-screen text-white py-32 px-4 flex flex-col items-center justify-center relative z-10">
+    <div className="bg-black h-screen text-white py-32 px-4 flex flex-col items-center justify-center relative z-10">
       <motion.h2 
         initial="hidden"
         whileInView="visible"
