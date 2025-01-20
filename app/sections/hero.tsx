@@ -81,9 +81,9 @@ const SplitRevealSequence: React.FC<SplitRevealSequenceProps> = ({
             <Image 
               src="/logo.png" 
               alt="logo" 
-              width={67.68} 
-              height={67.68} 
-              className="w-[50px] h-[50px] sm:w-[67.68px] sm:h-[67.68px]"
+              width={32} 
+              height={35.41} 
+              className="w-[32px] h-[35.41px] sm:w-[32px] sm:h-[35.41px]"
             />
           </div>
           <div className="hidden md:flex gap-4 lg:gap-8 text-white">
