@@ -23,7 +23,7 @@ export default function WellnessComponent() {
   return (
     <div className="relative h-screen w-full z-[2]">
       <Image
-        src="/c.png"
+        src="/21.png"
         alt="Wellness Image"
         fill
         style={{ objectFit: "cover" }}

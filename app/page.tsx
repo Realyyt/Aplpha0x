@@ -1,69 +1,36 @@
 "use client"
-import { ParallaxProvider, Parallax } from "react-scroll-parallax"
-import Hero from "./sections/hero";
-import AlphaWearableHighlight from "./sections/AlphaWearableHighlight"
-import WearableFeatureShowcase from './sections/WearableFeatureShowcase';
-import BioScanFeatures from './sections/BioScanFeatures';
-import WhyAlphaWearable from "./sections/WhyAlphaWearable";
-import Alpha from "./sections/alpha";
-import ImageGallery from "./sections/imagegallery";
-import MonitoringInfo from "./sections/monitoringinfo";
-import ColorfulSplash from "./sections/splash";
-import Comment from "./sections/comment";
-import WellnessComponent from "./sections/c";
-import Footer from "./sections/footer";
-import PhotoGrid from "./sections/slab";
-// ... in your page component
+import { useState, useEffect } from "react"
+import Hero from "./hero/page"
+import AlphaWearableHighlight from "./alphawear/page"
+import WearableFeatureShowcase from './wearablefeature/page'
+import BioScanFeatures from './bioscan/page'
+import WhyAlphaWearable from "./whyAlpha/page"
+import Alpha from "./alpha/page"
+import ImageGallery from "./imagegallery/page"
+import MonitoringInfo from "./monitoringinfo/page"
+import ColorfulSplash from "./splash/page"
+import Comment from "./comment/page"
+import WellnessComponent from "./c/page"
+import Footer from "./footer/page"
+import PhotoGrid from "./slab/page"
 
 export default function Home() {
+
   return (
-    <ParallaxProvider>
-      <div className="scrollable overflow-x-hidden bg-black">
-        <style jsx global>{`
-          html {
-            scroll-behavior: smooth;
-          }
-        `}</style>
-        <Parallax speed={-10}>
-          <Hero />
-        </Parallax>
-        <Parallax speed={-5}>
-          <AlphaWearableHighlight />
-        </Parallax>
-        <Parallax speed={-8}>
-          <WearableFeatureShowcase watchImageUrl="/watch2.png" />
-        </Parallax>
-        <Parallax speed={-10}>
-          <BioScanFeatures />
-        </Parallax>
-        <Parallax speed={-12}>
-          <WhyAlphaWearable imageUrl="/ride.png"/>
-        </Parallax>
-        <Parallax speed={-15}>
-          <PhotoGrid/>
-        </Parallax>
-        <Parallax speed={-18}>
-          <Alpha />
-        </Parallax>
-        <Parallax speed={-20}>
-          <ImageGallery />
-        </Parallax>
-        <Parallax speed={-22}>
-          <MonitoringInfo />
-        </Parallax>
-        <Parallax speed={-25}>
-          <ColorfulSplash />
-        </Parallax>
-        <Parallax speed={-28}>
-          <Comment />
-        </Parallax>
-        <Parallax speed={-30}>
-          <WellnessComponent />
-        </Parallax>
-        <Parallax speed={0}>
-          <Footer />
-        </Parallax>
-      </div>
-    </ParallaxProvider>
-  );
+    <div className="h-screen overflow-hidden bg-black">
+      <Hero key="hero" />,
+      <AlphaWearableHighlight key="alpha" />,
+      <WearableFeatureShowcase key="features" watchImageUrl="/watch2.png" />,
+      <BioScanFeatures key="bioscan" />,
+      <WhyAlphaWearable key="why" imageUrl="/ride.png"/>,
+      <PhotoGrid key="grid"/>,
+      <Alpha key="alpha2" />,
+      <ImageGallery key="gallery" />,
+      <MonitoringInfo key="monitoring" />,
+      <ColorfulSplash key="splash" />,
+      <Comment key="comment" />,
+      <WellnessComponent key="wellness" />,
+      <Footer key="footer" />
+    </div>
+  )
 }
