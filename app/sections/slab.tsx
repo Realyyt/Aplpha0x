@@ -51,7 +51,7 @@ const PhotoGrid = () => {
     const options = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.7, // Trigger when element is 70% visible
+      threshold: 0.3, // Adjusted to trigger when element is 50% visible
     };
 
     const callback: IntersectionObserverCallback = (entries) => {
