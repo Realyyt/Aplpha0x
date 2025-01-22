@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import TextReveal from '../components/TextReveal';
 import { motion } from 'framer-motion';
+import { Playball } from 'next/font/google';
 
 interface SplitRevealSequenceProps {
   imageUrl?: string;
@@ -139,7 +140,7 @@ const SplitRevealSequence: React.FC<SplitRevealSequenceProps> = ({
         </nav>
 
         {/* Main Text Content */}
-        <div className="absolute top-[20%] sm:top-1/4 left-4 sm:left-8 md:left-16 text-white max-w-[90%] sm:max-w-lg">
+        <div className="absolute top-[50%] sm:top-[55%] left-4 sm:left-8 md:left-16 text-white max-w-[90%] sm:max-w-lg">
           <motion.div 
             initial="hidden"
             whileInView="visible"
@@ -152,7 +153,7 @@ const SplitRevealSequence: React.FC<SplitRevealSequenceProps> = ({
               }
             }}
           >
-            <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold mb-2">{mainText.title}</h1>
+            <h1 className="text-2xl sm:text-4xl md:text-7xl font-bold mb-2">{mainText.title}</h1>
           </motion.div>
           
           <motion.div 
@@ -167,7 +168,7 @@ const SplitRevealSequence: React.FC<SplitRevealSequenceProps> = ({
               }
             }}
           >
-            <h2 className="text-2xl sm:text-4xl md:text-6xl italic mb-4">{mainText.subtitle}</h2>
+            <h2 className="text-2xl sm:text-4xl md:text-7xl font-playball mb-4 ">{mainText.subtitle}</h2>
           </motion.div>
 
           <motion.div 
@@ -182,7 +183,7 @@ const SplitRevealSequence: React.FC<SplitRevealSequenceProps> = ({
               }
             }}
           >
-            <p className="text-xs sm:text-sm md:text-base text-gray-200 max-w-[90%] sm:max-w-full">
+            <p className="text-sm sm:text-sm md:text-base text-gray-200 max-w-[90%] sm:max-w-full">
               {mainText.description}
             </p>
           </motion.div>

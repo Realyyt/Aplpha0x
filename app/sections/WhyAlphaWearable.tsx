@@ -2,6 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { Playball } from 'next/font/google';
 
 const WhyAlphaWearable: React.FC<{ imageUrl: string }> = ({ imageUrl }) => {
   const features = [
@@ -68,8 +69,8 @@ const WhyAlphaWearable: React.FC<{ imageUrl: string }> = ({ imageUrl }) => {
             <Image
               src={imageUrl}
               alt="Alpha Wearable"
-              width={300}
-              height={300}
+              width={600}
+              height={600}
               className="object-cover border-4 border-transparent"
             />
           </motion.div>

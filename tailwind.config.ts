@@ -23,6 +23,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        'playball': ['Playball', 'cursive'],
+      },
     },
   },
   plugins: [],

@@ -34,7 +34,7 @@ export default function MonitoringInfo() {
   }, []);
 
   return (
-    <div className="relative h-[100vh] overflow-hidden bg-white">
+    <div className="relative h-[screen] overflow-hidden bg-white">
       <div className="flex flex-col h-full">
         {/* Sleep Monitoring Section */}
         <div 
@@ -72,7 +72,7 @@ export default function MonitoringInfo() {
             }
           `}>
             <Image
-              src="/p1.png"
+              src="/mi.png"
               alt="Vital Signs"
               width={500}
               height={1000}

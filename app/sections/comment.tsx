@@ -105,7 +105,7 @@ export default function Testimonials() {
             />
           ) : (
             <div className="h-full w-full flex items-center justify-center bg-gray-900 p-8">
-              <div className="max-w-2xl">
+              <div className="max-w-2xl h-full flex flex-col justify-center items-center">
                 <p className="text-xl text-center">{testimonials[currentIndex].content}</p>
                 <p className="mt-6 text-sm text-gray-400 text-center">@{testimonials[currentIndex].author}</p>
               </div>

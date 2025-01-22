@@ -8,10 +8,8 @@ import WhyAlphaWearable from "./sections/WhyAlphaWearable";
 import Alpha from "./sections/alpha";
 import ImageGallery from "./sections/imagegallery";
 import MonitoringInfo from "./sections/monitoringinfo";
-import ColorfulSplash from "./sections/splash";
 import Comment from "./sections/comment";
 import WellnessComponent from "./sections/c";
-import Footer from "./sections/footer";
 import PhotoGrid from "./sections/slab";
 // ... in your page component
 
@@ -51,17 +49,11 @@ export default function Home() {
         <Parallax speed={-22}>
           <MonitoringInfo />
         </Parallax>
-        <Parallax speed={-25}>
-          <ColorfulSplash />
-        </Parallax>
         <Parallax speed={-28}>
           <Comment />
         </Parallax>
-        <Parallax speed={-30}>
-          <WellnessComponent />
-        </Parallax>
         <Parallax speed={0}>
-          <Footer />
+          <WellnessComponent />
         </Parallax>
       </div>
     </ParallaxProvider>
