@@ -38,7 +38,7 @@ const steps = [
     number: "06",
     title: "Experience Balance",
     description: "Enjoy improved balance and well-being as the Alpha Wearable works to restore your health.",
-    image: "/o5.png"
+    image: "/o6.png"
   }
 ];
 
