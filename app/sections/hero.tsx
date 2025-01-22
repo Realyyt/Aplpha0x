@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import TextReveal from '../components/TextReveal';
 import { motion } from 'framer-motion';
-import { Playball } from 'next/font/google';
 
 interface SplitRevealSequenceProps {
   imageUrl?: string;

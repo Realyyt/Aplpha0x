@@ -55,7 +55,7 @@ export default function WellnessComponent() {
             }}
             className="text-lg sm:text-xl max-w-xl mb-10 text-gray-100 leading-relaxed"
           >
-            Unlock the power of advanced Bio-Scan technology and therapeutic frequencies to support your body's natural healing process and overall well-being.
+            Unlock the power of advanced Bio-Scan technology and therapeutic frequencies to support your body&apos;s natural healing process and overall well-being.
           </motion.p>
           <motion.button
             initial="hidden"

@@ -2,7 +2,6 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Playball } from 'next/font/google';
 
 const WhyAlphaWearable: React.FC<{ imageUrl: string }> = ({ imageUrl }) => {
   const features = [

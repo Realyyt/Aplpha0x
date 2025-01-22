@@ -5,7 +5,15 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
-const testimonials = [
+type Testimonial = {
+  type: "image" | "text";
+  src?: string | undefined;
+  alt?: string | undefined;
+  content?: string;
+  author?: string;
+}
+
+const testimonials: Testimonial[] = [
   {
     type: "image",
     src: "/hey.png",
@@ -94,8 +102,8 @@ export default function Testimonials() {
             <div className="aspect-[16/9] relative overflow-hidden rounded-lg">
               {testimonials[getAdjacentIndex(-1)].type === "image" ? (
                 <Image
-                  src={testimonials[getAdjacentIndex(-1)].src || "/placeholder.svg"}
-                  alt={testimonials[getAdjacentIndex(-1)].alt}
+                  src={testimonials[getAdjacentIndex(-1)].src || "/hey.png"}
+                  alt={testimonials[getAdjacentIndex(-1)].alt || "Alphawearable"}
                   fill
                   className="object-cover"
                   sizes="(max-width: 1400px) 25vw, 350px"
@@ -113,8 +121,8 @@ export default function Testimonials() {
             <div className="relative aspect-[16/9] rounded-2xl overflow-hidden">
               {testimonials[currentIndex].type === "image" ? (
                 <Image
-                  src={testimonials[currentIndex].src || "/placeholder.svg"}
-                  alt={testimonials[currentIndex].alt}
+                  src={testimonials[currentIndex].src || "/hey.png"}
+                  alt={testimonials[currentIndex].alt || "Alphawearable"}
                   fill
                   className="object-cover"
                   sizes="(max-width: 1400px) 50vw, 700px"
@@ -135,8 +143,8 @@ export default function Testimonials() {
             <div className="aspect-[16/9] relative overflow-hidden rounded-lg">
               {testimonials[getAdjacentIndex(1)].type === "image" ? (
                 <Image
-                  src={testimonials[getAdjacentIndex(1)].src || "/placeholder.svg"}
-                  alt={testimonials[getAdjacentIndex(1)].alt}
+                  src={testimonials[getAdjacentIndex(1)].src || "/hey.png"}
+                  alt={testimonials[getAdjacentIndex(1)].alt || "Alphawearable"}
                   fill
                   className="object-cover"
                   sizes="(max-width: 1400px) 25vw, 350px"
